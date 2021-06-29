@@ -14,24 +14,11 @@
   <header>TO DO</header>
   <section class="list">
     <div class="list-wrap">
-      <div class="todo">
-        <p>제목</p>
-      </div>
-      <div class="todo">
-        <p>제목</p>
-      </div>
-      <div class="todo">
-        <p>제목</p>
-      </div>
-      <div class="todo">
-        <p>제목</p>
-      </div>
-      <div class="todo">
-        <p>제목</p>
-      </div>
-      <div class="todo">
-        <p>제목</p>
-      </div>
+      <th:block th:each="todo : ${tlist}">
+        <div class="todo" th:data-id="${todo.no}">
+          <p th:text="${todo.title}">ToDo를 등록해주세요!</p>
+        </div>
+      </th:block>
     </div>
     <button>CREATE TODO</button>
   </section>
