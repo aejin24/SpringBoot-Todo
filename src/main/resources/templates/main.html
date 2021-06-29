@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="apple-touch-icon" href="/img/favicon-apple.png" />
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link id="createUrl" th:data-src="'/todo'" data-src="/todo.html"/>
+  <title>ToDo</title>
+</head>
+<body>
+  <header>TO DO</header>
+  <section class="list">
+    <div class="list-wrap">
+      <div class="todo">
+        <p>제목</p>
+      </div>
+      <div class="todo">
+        <p>제목</p>
+      </div>
+      <div class="todo">
+        <p>제목</p>
+      </div>
+      <div class="todo">
+        <p>제목</p>
+      </div>
+      <div class="todo">
+        <p>제목</p>
+      </div>
+      <div class="todo">
+        <p>제목</p>
+      </div>
+    </div>
+    <button>CREATE TODO</button>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(".list button").on("click", function(){
+        const createUrl = $("#createUrl").attr("data-src");
+        window.location.href = createUrl;
+    });
+  </script>
+</body>
+</html>
