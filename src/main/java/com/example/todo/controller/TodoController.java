@@ -23,12 +23,19 @@ public class TodoController {
     
     @GetMapping("/")
     public String main(Model model) {
-        tService.findToDo();
         List<String> tlist = tService.findToDo();
 
         //저장된 todo가 있을 때만 model 추가
         if(tlist.size() > 1){
             model.addAttribute("tlist", tlist);
+
+            System.out.println("---------------------------");
+            System.out.println("call todo list");
+            System.out.println("---------------------------");
+        }else {
+            System.out.println("---------------------------");
+            System.out.println("empty todo list");
+            System.out.println("---------------------------");
         }
 
         return "main";
@@ -37,6 +44,11 @@ public class TodoController {
     @GetMapping("/todo")
     public String todo() {
         return "todo";
+    }
+
+    @GetMapping("/info")
+    public String todoInfo(){
+        return "todoInfo";
     }
 
     @ResponseBody
