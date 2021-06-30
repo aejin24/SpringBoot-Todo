@@ -8,6 +8,7 @@
   <link rel="apple-touch-icon" href="/img/favicon-apple.png" />
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
   <link id="createUrl" th:data-src="'/todo'" data-src="/todo.html"/>
+  <link id="todoInfoUrl" th:data-src="'/todo/info'" data-src="/todoInfo.html">
   <title>ToDo</title>
 </head>
 <body>
@@ -27,11 +28,6 @@
   </section>
 
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
-    $(".list button").on("click", function(){
-        const createUrl = $("#createUrl").attr("data-src");
-        window.location.href = createUrl;
-    });
-  </script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
