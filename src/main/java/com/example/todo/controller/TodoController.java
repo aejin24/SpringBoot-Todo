@@ -71,14 +71,13 @@ public class TodoController {
         tService.deleteToDo(no);
     }
 
-    @ResponseBody
-    @PostMapping("/todo/modify")
+    @GetMapping("/todo/modify")
     public String modifyToDo(HttpServletRequest request, Model model){
         int no = Integer.parseInt(request.getParameter("id"));
 
-        List<Todo> ftodo = tService.findOneToDo(no);
-        model.addAttribute("title", ftodo.get(0).getTitle());
-        model.addAttribute("content", ftodo.get(0).getContent());
+        List<Todo> fTodos = tService.findOneToDo(no);
+        model.addAttribute("title", fTodos.get(0).getTitle());
+        model.addAttribute("content", fTodos.get(0).getContent());
 
         return "todoModify";
     }

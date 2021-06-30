@@ -4,37 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/css/todoInfo.css">
+  <link rel="stylesheet" type="text/css" href="/css/todo.css">
   <link rel="apple-touch-icon" href="/img/favicon-apple.png" />
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
   <link id="listUrl" th:data-src="'/'" data-src="/main.html"/>
-  <link id="modifyUrl" th:data-src="'/todo/modify'" data-src="/todoModify.html">
   <title>ToDo</title>
 </head>
 <body>
   <header>TO DO</header>
   <section class="todo-wrap">
-    <div class="todo-info">
+    <form class="todo-form" action="">
       <div>
         <p>제목</p>
         <br>
-        <p th:text="${title}">와아아앙ㅇ</p>
+        <input type="text" name="title" th:value="${title}">
       </div>
       <div>
         <p>내용</p>
         <br>
-        <p th:text="${content}">와아아ㅏㅇㅇ</p>
+        <textarea th:text="${content}"></textarea>
       </div>
-    </div>
-    
+    </form>
     <div class="btn-wrap">
-      <button type="button">MODIFY</button>
-      <button type="button">DELETE</button>
-      <button type="button">GO LIST</button>
+      <button type="button">UPDATE</button>
+      <button type="button">LIST</button>
+      <button type="reset">RESET</button>
     </div>
   </section>
 
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="/js/todoInfo.js"></script>
+  <script src="/js/todo.js"></script>
 </body>
 </html>

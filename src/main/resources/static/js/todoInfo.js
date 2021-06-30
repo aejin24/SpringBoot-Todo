@@ -21,6 +21,7 @@ $(".btn-wrap button:last-child").on("click", () => {
     window.location.href = listUrl;
 });
 
+//삭제하기
 $(".btn-wrap button:nth-child(2)").on("click", () => {
     $.ajax({
         type: "POST",
@@ -38,18 +39,11 @@ $(".btn-wrap button:nth-child(2)").on("click", () => {
     });
 });
 
+//수정하기
 $(".btn-wrap button:first-child").on("click", () => {
-    $.ajax({
-        type: "POST",
-        url: "/todo/modify",
-        data: {
-            id: getUrlParameter("id")
-        },
-        success: () => {
-            window.location.href = "/todo/modify";
-        },
-        error: (request) => {
-            alert("error: " + request.status);
-        }
-    });
+    let todoModifyUrl = $("#modifyUrl").attr("data-src");
+    if (todoModifyUrl == "/todo/modify"){
+        todoModifyUrl = "/todo/modify?id=" + getUrlParameter("id");
+    }
+    window.location.href = todoModifyUrl;
 });
