@@ -73,6 +73,10 @@ header {
   line-height: 80px;
 }
 
+.todo:hover {
+  border-left: 5px solid #AF7EEB;
+}
+
 .list button {
   display: block;
   margin: 0 auto;
