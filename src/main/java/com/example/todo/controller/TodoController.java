@@ -27,7 +27,7 @@ public class TodoController {
         List<String> tlist = tService.findToDo();
 
         //저장된 todo가 있을 때만 model 추가
-        if(tlist.size() > 1){
+        if(tlist.size() > 0){
             model.addAttribute("tlist", tlist);
         }else {
             System.out.println("---------------------------");
@@ -69,5 +69,17 @@ public class TodoController {
         int no = Integer.parseInt(request.getParameter("id"));
         
         tService.deleteToDo(no);
+    }
+
+    @ResponseBody
+    @PostMapping("/todo/modify")
+    public String modifyToDo(HttpServletRequest request, Model model){
+        int no = Integer.parseInt(request.getParameter("id"));
+
+        List<Todo> ftodo = tService.findOneToDo(no);
+        model.addAttribute("title", ftodo.get(0).getTitle());
+        model.addAttribute("content", ftodo.get(0).getContent());
+
+        return "todoModify";
     }
 }

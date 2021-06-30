@@ -25,6 +25,7 @@ $(".btn-wrap button:first-child").on("click", () => {
             success: () => {
                 resetData();
                 alert("To Do를 저장했습니다!");
+                window.location.href = "/";
             },
             error: (request) => {
                 alert("error: " + request.status);
