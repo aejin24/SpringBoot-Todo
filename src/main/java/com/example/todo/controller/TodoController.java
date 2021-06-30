@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.example.todo.entitiy.Todo;
 import com.example.todo.service.TodoService;
 
 import org.springframework.stereotype.Controller;
@@ -24,11 +23,11 @@ public class TodoController {
     
     @GetMapping("/")
     public String main(Model model) {
-        List<Todo> tlist = tService.findToDoAll();
+        tService.findToDo();
+        List<String> tlist = tService.findToDo();
 
-        if(tlist.size() < 1){
-            model.addAttribute("dummyData", null);
-        }else{
+        //저장된 todo가 있을 때만 model 추가
+        if(tlist.size() > 1){
             model.addAttribute("tlist", tlist);
         }
 

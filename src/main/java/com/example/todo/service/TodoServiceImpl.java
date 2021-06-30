@@ -4,7 +4,6 @@ import com.example.todo.entitiy.Todo;
 import com.example.todo.repo.TodoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +21,8 @@ public class TodoServiceImpl implements TodoService {
     }
 
     //selectToDo
-    public List<Todo> findToDoAll(){
-        return tRepository.findAll(Sort.by(Sort.Direction.DESC, "no"));
+    public List<String> findToDo(){
+        List<String> todos = tRepository.findByNoAndTitle();
+        return todos;
     }
 }
