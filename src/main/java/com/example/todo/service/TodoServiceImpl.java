@@ -25,4 +25,10 @@ public class TodoServiceImpl implements TodoService {
         List<String> todos = tRepository.findByNoAndTitle();
         return todos;
     }
+
+    //selectToDo where id
+    public List<Todo> findOneToDo(Integer no){
+        List<Todo> todos = tRepository.findByno(no);
+        return todos;
+    }
 }

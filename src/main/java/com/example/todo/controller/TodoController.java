@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.example.todo.entitiy.Todo;
 import com.example.todo.service.TodoService;
 
 import org.springframework.stereotype.Controller;
@@ -28,10 +29,6 @@ public class TodoController {
         //저장된 todo가 있을 때만 model 추가
         if(tlist.size() > 1){
             model.addAttribute("tlist", tlist);
-
-            System.out.println("---------------------------");
-            System.out.println("call todo list");
-            System.out.println("---------------------------");
         }else {
             System.out.println("---------------------------");
             System.out.println("empty todo list");
@@ -46,8 +43,14 @@ public class TodoController {
         return "todo";
     }
 
-    @GetMapping("/info")
-    public String todoInfo(){
+    @GetMapping("/todo/info")
+    public String todoInfo(HttpServletRequest request, Model model){
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        List<Todo> ftodo = tService.findOneToDo(id);
+        model.addAttribute("title", ftodo.get(0).getTitle());
+        model.addAttribute("content", ftodo.get(0).getContent());
+
         return "todoInfo";
     }
 

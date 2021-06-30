@@ -13,4 +13,6 @@ public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
     @Query(value = "select no, title from todo", nativeQuery = true)
     public List<String> findByNoAndTitle();
+
+    public List<Todo> findByno(Integer no);
 }
