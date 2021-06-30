@@ -15,9 +15,12 @@
   <section class="list">
     <div class="list-wrap">
       <th:block th:each="todo : ${tlist}">
-        <div class="todo" th:data-id="${todo.no}">
-          <p th:text="${todo.title}">ToDo를 등록해주세요!</p>
+        <div class="todo" th:data-id="${#strings.substringBefore(todo, ',')}">
+          <p th:text="${#strings.substringAfter(todo, ',')}">ToDo를 등록해주세요!</p>
         </div>
+      </th:block>
+      <th:block th:if="${tlist}==null">
+        <p class="null-header">ToDo를 등록해주세요!</p>
       </th:block>
     </div>
     <button>CREATE TODO</button>
