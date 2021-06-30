@@ -43,6 +43,15 @@ public class TodoController {
         return "todo";
     }
 
+    @ResponseBody
+    @PostMapping("/todo/newToDo")
+    public void newToDo(HttpServletRequest request){
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+
+        tService.saveToDo(title, content);
+    }
+
     @GetMapping("/todo/info")
     public String todoInfo(HttpServletRequest request, Model model){
         int id = Integer.parseInt(request.getParameter("id"));
@@ -55,11 +64,10 @@ public class TodoController {
     }
 
     @ResponseBody
-    @PostMapping("/todo/newToDo")
-    public void newToDo(HttpServletRequest request){
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
-
-        tService.saveToDo(title, content);
+    @PostMapping("/todo/delete")
+    public void deleteToDo(HttpServletRequest request){
+        int no = Integer.parseInt(request.getParameter("id"));
+        
+        tService.deleteToDo(no);
     }
 }

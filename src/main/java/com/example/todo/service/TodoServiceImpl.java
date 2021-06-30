@@ -31,4 +31,9 @@ public class TodoServiceImpl implements TodoService {
         List<Todo> todos = tRepository.findByno(no);
         return todos;
     }
+
+    //deleteToDo where id
+    public void deleteToDo(Integer no){
+        tRepository.deleteById(no);
+    }
 }

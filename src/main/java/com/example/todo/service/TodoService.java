@@ -11,4 +11,6 @@ public interface TodoService {
     public void saveToDo(String title, String content);
 
     public List<Todo> findOneToDo(Integer no);
+
+    public void deleteToDo(Integer no);
 }
