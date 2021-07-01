@@ -13,4 +13,6 @@ public interface TodoService {
     public List<Todo> findOneToDo(Integer no);
 
     public void deleteToDo(Integer no);
+
+    public void updateToDo(String title, String content, Integer no);
 }

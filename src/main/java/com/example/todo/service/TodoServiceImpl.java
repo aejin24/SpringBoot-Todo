@@ -36,4 +36,9 @@ public class TodoServiceImpl implements TodoService {
     public void deleteToDo(Integer no){
         tRepository.deleteById(no);
     }
+
+    //updateToDo where id
+    public void updateToDo(String title, String content, Integer no){
+        tRepository.changeToDo(title, content, no);
+    }
 }

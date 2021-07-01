@@ -81,4 +81,14 @@ public class TodoController {
 
         return "todoModify";
     }
+
+    @ResponseBody
+    @PostMapping("/todo/update")
+    public void updateToDo(HttpServletRequest request){
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        int no = Integer.parseInt(request.getParameter("id"));
+
+        tService.updateToDo(title, content, no);
+    }
 }
